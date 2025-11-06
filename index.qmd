@@ -21,7 +21,7 @@ This site contains materials for learning data visualization in R using `ggplot2
 ### Examples &amp; Illustrations
 
 
-- [**Understanding Univariate Data: Location and Spread**](examples/cleveland_univariate_data.html) - Following William Cleveland's systematic approach to exploratory data analysis
+- [**Understanding Univariate Data: Location and Spread**](examples/applications_7_cleveland_univariate_data.html) - Following William Cleveland's systematic approach to exploratory data analysis
 - [**Effective Use of Position and Scales**](examples/applications_1_effective_and_honest_scales.html) - Understanding how scale choices affect interpretation
 - [**Colors and Accessibility**](examples/colors_and_accessibility.html) - RColorBrewer, Viridis, and custom palettes
 - [**Themes and Staying DRY**](examples/ggplot_themes_and_staying_dry.html) - Reusable design systems
