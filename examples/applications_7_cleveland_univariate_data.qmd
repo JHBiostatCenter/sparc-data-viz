@@ -571,62 +571,96 @@ p1 + p2 +
 - **Why it works**: Log transforms multiplicative relationships into additive ones
 - On log scale, a 10% raise is the same distance for everyone
 
-### Example 2: Square Root Transformation for Count Data
+### Example 2: The Ladder of Powers
 
-**Why square root for counts?** Count data (e.g., number of events, accidents, infections) often has variance that increases with the mean. Square root transformation stabilizes this.
+Try several transformations from the **ladder of powers** and visually compare them using Q-Q plots.
+
+For example:
+
+- $x^3$ (cube)
+- $x^2$ (square)
+- $x^1$ (original, no transformation)
+- $x^{1/2}$ (square root)
+- $x^{-1}$ (reciprocal)
+- $x^{-2}$ (reciprocal square)
+- $x^{-3}$ (reciprocal cube)
+
+I add $\log(x)$ in there too. You can think of it as the limit of $x^p$ as $p$ approaches 0, since for small $p$, $x^p$ behaves similarly to $\log(x)$. Cleveland (1993, p. 56) explains that the derivative of $\log(x)$ is $\frac{1}{x}$, and the derivative of $x^{0.001}$ is proportional to $x^{-0.999}$. The intuition is:
+
+- For large $p$, you get steep curves ($x^2$, $x^3$).
+- For small $p$, they flatten out and start to look like $\log(x)$.
 
 ```{r transformation_comparison}
-#| fig.height: 7
+#| fig.height: 9
+#| fig.width: 12
 
-# Simulate count data (Poisson-distributed)
-set.seed(789)
+library(tidyr)
 
-# Generate data from multiple groups with different means
-count_data <- data.frame(
-  group = rep(c("Low", "Medium", "High"), each = 200),
-  count = c(
-    rpois(200, lambda = 5),   # Low rate
-    rpois(200, lambda = 15),  # Medium rate
-    rpois(200, lambda = 30)   # High rate
-  )
+# Use the earnings data from Example 1
+set.seed(456)
+n <- 500
+earnings <- exp(rnorm(n, mean = log(50000), sd = 0.6))
+
+# Apply different power transformations
+transformation_data <- data.frame(
+  x = earnings
 ) |>
   mutate(
-    sqrt_count = sqrt(count + 0.5)  # Add 0.5 to handle zeros
+    x_cubed = x^3,
+    x_squared = x^2,
+    x_original = x,
+    x_log = log(x),
+    x_sqrt = sqrt(x),
+    x_inv = 1/x,
+    x_inv_squared = 1/(x^2),
+    x_inv_cubed = 1/(x^3)
+  ) |>
+  pivot_longer(
+    cols = starts_with("x_"),
+    names_to = "transformation",
+    values_to = "value"
+  ) |>
+  mutate(
+    transformation = factor(
+      transformation,
+      levels = c("x_cubed", "x_squared", "x_original", "x_log", "x_sqrt", "x_inv", "x_inv_squared", "x_inv_cubed"),
+      labels = c(
+        "x³",
+        "x²",
+        "x (original)",
+        "log",
+        "√x",
+        "1/x",
+        "1/x²",
+        "1/x³"
+      )
+    )
   )
 
-# Create side-by-side Q-Q plots
-p1 <- ggplot(count_data, aes(sample = count)) +
-  stat_qq() +
-  stat_qq_line(color = "red", linewidth = 1) +
+# Create trellis of Q-Q plots
+ggplot(transformation_data, aes(sample = value)) +
+  stat_qq(size = 0.5, alpha = 0.6) +
+  stat_qq_line(color = "red", linewidth = 0.8) +
+  facet_wrap(~ transformation, scales = "free", ncol = 4) +
   labs(
-    title = "Original Counts",
+    title = "Ladder of Powers: Comparing Transformations for Earnings Data",
+    subtitle = "Which transformation makes the data most closely follow the line?",
     x = "Theoretical Quantiles",
     y = "Sample Quantiles"
   ) +
-  theme_minimal() +
-  theme(plot.title = element_text(face = "bold"))
-
-p2 <- ggplot(count_data, aes(sample = sqrt_count)) +
-  stat_qq() +
-  stat_qq_line(color = "red", linewidth = 1) +
-  labs(
-    title = expression(sqrt(Count + 0.5)),
-    x = "Theoretical Quantiles",
-    y = "Sample Quantiles"
-  ) +
-  theme_minimal() +
-  theme(plot.title = element_text(face = "bold"))
-
-p1 + p2 +
-  plot_annotation(
-    title = "Square Root Transformation Stabilizes Variance in Count Data",
-    subtitle = expression(paste("Left: Original shows increasing variance. Right: ", sqrt(Count), " transformation makes variance more constant"))
+  theme_minimal(base_size = 11) +
+  theme(
+    strip.text = element_text(face = "bold", size = 12),
+    strip.background = element_rect(fill = "gray90", color = NA),
+    panel.border = element_rect(color = "gray80", fill = NA, linewidth = 0.5),
+    plot.title = element_text(face = "bold", size = 14),
+    plot.subtitle = element_text(size = 11)
   )
 ```
 
-**Interpretation**:
+**How to read this**:
 
-- **Left panel**: Original counts show a curve (variance increases with mean)
-- **Right panel**: $\sqrt{\text{count}}$ is closer to a straight line
-- **Why it works**: For Poisson data, variance = mean, so $\sqrt{\cdot}$ helps stabilizes this relationship
+- Each panel shows the same data with a different transformation
+- Look for which Q-Q plot has points **closest to the red line**
 
+**Strategy**: Create this trellis for your data, compare visually. The goal isn't necessarily to find a fix, but to understand the structure of the data. One tip: when the log is the best or close to the others -- pick it. You can then use multiplicative interpretation.
