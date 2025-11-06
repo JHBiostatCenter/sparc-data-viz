@@ -1293,5 +1293,12 @@
     "title": "Data Visualization",
     "section": "Proof of Concept",
     "text": "Proof of Concept\n\nLet’s take the mtcars dataset and see what we can do\n\nI have a plot of auto data. The data set is named \"auto.\" The variables I'm interested are: price, efficiency (variable name: mpg), weight, and manufacturer.  The data set only includes the variable \"make,\" which has both the manufacturer and the car name.  Can you first split \"make\" into \"manufacturer\" and \"model.\" Weight is a continuous measure, but it would be helpful to split this data into categories of small, medium, and large.\n\nI'd then like a plot comparing efficiency to weight. Facet this into small, medium, and large cars. On each figure, annotate the least efficient car with its make and model, one average car with its make and model, and the most efficient car with its make and model.\n\nPut the code for this in a new quarto notebook named llm-example.qmd"
+  },
+  {
+    "objectID": "presentation.html#causal-inference-making-dags",
+    "href": "presentation.html#causal-inference-making-dags",
+    "title": "Data Visualization",
+    "section": "Causal Inference & Making DAGs",
+    "text": "Causal Inference & Making DAGs\n\nDAGs made easy\n\nView Example"
   }
 ]

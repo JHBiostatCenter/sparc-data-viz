@@ -9,7 +9,7 @@ format:
     slide-number: true
     chalkboard: true
     preview-links: auto
-    footer: "presentation"
+    footer: "SPARC Working Group"
 execute:
   warning: false
 
@@ -453,12 +453,11 @@ I've prepared a web site at the [JHBC GitHub](https://jhbiostatcenter.github.io/
 
 [View Example](examples/applications_7_cleveland_univariate_data.html)
 
-## Causal Inference & DAGs
+## Causal Inference & Making DAGs
 
-* Simulating data from directed acyclic graphs
-* Testing assumptions before collecting expensive data
+* DAGs made easy
 
-[View Example](examples/dag_sim_data.html)
+[View Example](examples/making_dags.html)
 
 ## Themes and Staying DRY
 
