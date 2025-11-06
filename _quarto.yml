@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Data Visualization"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.html
+      - text: "Presentation"
+        href: presentation.html
+
+execute:
+  echo: true
+  warning: true
+  message: false
+  error: false
+  cache: false
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    fig-width: 8
+    fig-height: 6

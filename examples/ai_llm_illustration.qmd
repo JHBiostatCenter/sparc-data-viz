@@ -1,0 +1,68 @@
+---
+title: "AI & LLM Example"
+author: "Erik Westlund"
+date: "2025-06-11"
+date-modified: "`r format(Sys.Date(), '%Y-%m-%d')`"
+editor:
+  render-on-save: true
+
+
+---
+
+## Overview
+
+* We'll use an LLM to help us prepare data for a visualization
+* Let's use the [CDC's data on influenza vaccination coverage for all ages](https://data.cdc.gov/Flu-Vaccinations/Influenza-Vaccination-Coverage-for-All-Ages-6-Mont/vh55-3he6/about_data)
+
+## Data Preparation
+
+```{r setup}
+#| echo: false
+#| message: false
+
+# Install required packages if not already installed
+required_packages <- c("dplyr", "ggplot2", "forcats", "janitor", "kableExtra",
+                      "readr", "stringr", "tidyr")
+new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages)) install.packages(new_packages)
+
+# Load required packages
+library(dplyr)
+library(ggplot2)
+library(forcats)
+library(janitor)
+library(kableExtra)
+library(readr)
+library(stringr)
+library(tidyr)
+
+```
+
+## Overview
+
+* We'll use an LLM to help us prepare data for a visualization
+* Let's use the [CDC's data on influenza vaccination coverage for all ages](https://data.cdc.gov/Flu-Vaccinations/Influenza-Vaccination-Coverage-for-All-Ages-6-Mont/vh55-3he6/about_data)
+
+## Data Preparation
+
+```{r}
+#| message: false
+
+df <- read_csv(here::here("data", "raw", "cdc_Influenza_Vaccination_Coverage_for_All_Ages__6__Months__20250610.csv"))
+
+df |> glimpse()
+```
+
+## Chat with the LLM
+
+### Data Preparation
+
+From here, we can chat with the LLM to help us prepare the data for a visualization.
+
+We'll start with the most lazy prompt we can, and see how it goes.
+
+```
+I am completely unqualified for my job. Can you look at the below notebook, clean up the data, and create me a plot of influenze vaccine coverage by age group?
+
+My job depends on it and I only have five minutes, please help. I just saw the boss's car pull into the parking lot.
+```

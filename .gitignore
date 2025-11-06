@@ -1,0 +1,36 @@
+data/raw/cdc*
+
+.Rhistory
+.Rapp.history
+.RData
+.RDataTmp
+.Ruserdata
+.Renviron
+
+.Rproj.user/
+vignettes/*.html
+vignettes/*.pdf
+
+*_cache/
+/cache/
+/*_files/
+
+.idea
+.vscode
+
+.DS_Store
+
+# README build system (for maintainers only)
+readme-parts/
+
+# Development files (for maintainers only)
+CLAUDE.md
+.styler.R
+
+/.quarto/
+
+# Old render directory
+rendered/
+
+# Keep docs folder for GitHub Pages (Quarto output)
+!docs/

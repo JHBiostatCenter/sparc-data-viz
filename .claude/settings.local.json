@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(quarto render)",
+      "Bash(quarto render:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

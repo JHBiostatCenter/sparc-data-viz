@@ -1,0 +1,71 @@
+---
+title: "Data Visualization"
+subtitle: "The substance, statistics, and design behind good, honest graphics"
+author: "Erik Westlund"
+---
+
+## Welcome
+
+This site contains materials for learning data visualization in R using `ggplot2` and the grammar of graphics approach. These materials emphasize Edward Tufte's principles of graphical excellence: well-designed presentations of interesting data that tell the truth.
+
+## Contents
+
+### [Presentation: Data Visualization](presentation.html)
+#### *The substance, statistics, and design behind good, honest graphics*
+
+- Edward Tufte's principles of graphical excellence
+- Tooling and workflow (R, ggplot2, Quarto, RStudio)
+- The grammar of graphics
+- Building visualizations layer by layer with PRAMS data
+- Choose-your-own-adventure topics
+
+### Examples &amp; Illustrations
+
+
+- [**Understanding Univariate Data: Location and Spread**](examples/cleveland_univariate_data.html) - Following William Cleveland's systematic approach to exploratory data analysis
+- [**Effective Use of Position and Scales**](examples/applications_1_effective_and_honest_scales.html) - Understanding how scale choices affect interpretation
+- [**Colors and Accessibility**](examples/colors_and_accessibility.html) - RColorBrewer, Viridis, and custom palettes
+- [**Themes and Staying DRY**](examples/ggplot_themes_and_staying_dry.html) - Reusable design systems
+- [**Making DAGs**](examples/making_dags.html) - Simulating data from causal models
+- [**Choropleths for Spatial Data**](examples/applications_2_choropleths_for_spatial_data.html) - Mapping geographic data
+- [**Dot Plots for Spatial Data**](examples/applications_3_dot_plot_for_spatial_data.html) - Alternative spatial visualizations
+- [**Distribution Plots**](examples/applications_4_distribution_plots.html) - Showing data distributions effectively
+- [**Visualizing Time Trends**](examples/applications_5_visualizing_time_trends.html) - Time series best practices
+- [**Visualizing Correlations and Models**](examples/applications_6_visualizing_correlations_and_models.html) - Regression and relationship plots
+- [**Saving Visualizations**](examples/saving_visualizations.html) - Export formats and best practices
+
+#### Refining Visualizations with `ggplot2` and PRAMS Data
+- [**PRAMS Data Preparation**](examples/prams_1_data_prep.html) - Preparing data for visualization
+- [**ggplot2 Fundamentals**](examples/prams_2_ggplot_concepts.html) - Core concepts and workflow
+- [**Iteration and Aggregation**](examples/prams_3_iteration_aggregation.html) - Building better plots step-by-step
+
+#### Advanced Topics
+- **Shiny Dashboards** - Interactive web applications (requires running locally with R). See `examples/shiny_example.R`
+
+
+## Data
+
+The repository contains two main data directories:
+
+- `data/raw/`: Contains the original, unmodified data files used in the course
+- `data/processed/`: Contains processed and cleaned versions of the data, ready for analysis
+
+### PRAMS Data
+
+The Pregnancy Risk Assessment Monitoring System (PRAMS) data used in the examples on Day 2 is not included in the repository due to its large size (150MB+). However, you can download it directly from the CDC's data portal:
+
+[CDC PRAMStat Data for 2011](https://data.cdc.gov/Maternal-Child-Health/CDC-PRAMStat-Data-for-2011/ese6-rqpq/about_data)
+
+This dataset contains state-level maternal health data from 2011, including information about maternal behaviors and experiences before, during, and after pregnancy. It is used in the a
+
+## Credits
+
+* A major debt is owed to Kieran Healy for his [Data Visualization book](https://socviz.co/).
+* Many of the materials here were first developed for the [Johns Hopkins Maternal Health Data Innovation and Coordinating Hub](https://maternalhealthhub.jhu.edu/johns-hopkins-university#:~:text=The%20Hub%20is%20a%20multidisciplinary,Medicine%20at%20Johns%20Hopkins%20University) of the [NIH Maternal Health Research Centers of Excellence](https://www.nih.gov/news-events/news-releases/nih-establishes-maternal-health-research-centers-excellence).
+* LLMs were used to aid in creation of many of the visuals in this course. Any mistakes made by LLMs are my responsibility.
+
+### Contact
+
+Erik Westlund
+Johns Hopkins Biostatistics Center
+[ewestlund@jhu.edu](mailto:ewestlund@jhu.edu)

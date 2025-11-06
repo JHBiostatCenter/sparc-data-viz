@@ -1,0 +1,546 @@
+---
+title: "Data Visualization"
+subtitle: "The substance, statistics, and design behind good, honest graphics"
+author: "Erik Westlund"
+date: "2025-11-07"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: "presentation"
+execute:
+  warning: false
+
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(ggplot2)
+library(dplyr)
+library(forcats)
+library(kableExtra)
+library(stringr)
+library(readr)
+library(ggtext)
+
+source(here::here("examples", "colors.R"))
+```
+
+
+# Introduction
+
+## Who am I?
+
+- I am a data scientist at the Johns Hopkins Bloomberg School of Public Health
+- I work out of the Johns Hopkins Biostatistics Center in the Department of Biostatistics
+- I was trained in the social sciences and have worked profesionally as a data scientist and software developer for over 10 years
+
+## Contact information
+
+- Email: ewestlund@jhu.edu
+
+# Introduction to Data Visualization
+
+## Edward Tufte: Graphical Excellence is....
+
+::: {.columns}
+::: {.column width="50%"}
+![Edward Tufte](images/tufte.jpg)
+:::
+
+::: {.column width="50%"}
+
+> "Graphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design..."
+
+*Edward Tufte, The Visual Display of Quantitative Information, 1983*
+
+:::
+:::
+
+## Dense
+
+::: {.columns}
+::: {.column width="50%"}
+![Edward Tufte](images/tufte.jpg)
+:::
+
+::: {.column width="50%"}
+
+> "It is that which gives to the view the great number of ideas in the shortest time with the least ink in the smallest space..."
+
+*Edward Tufte, The Visual Display of Quantitative Information, 1983*
+
+:::
+:::
+
+## Multivariate
+
+::: {.columns}
+::: {.column width="50%"}
+![Edward Tufte](images/tufte.jpg)
+:::
+
+::: {.column width="50%"}
+
+> "It is nearly always multivariate..."
+
+*Edward Tufte, The Visual Display of Quantitative Information, 1983*
+
+:::
+:::
+
+## Truthful
+
+::: {.columns}
+::: {.column width="50%"}
+![Edward Tufte](images/tufte.jpg)
+:::
+
+::: {.column width="50%"}
+
+> "Graphical excellence requires telling the truth about the data..."
+
+*Edward Tufte, The Visual Display of Quantitative Information, 1983*
+
+:::
+:::
+
+## Exemplar: Napoleon's March
+
+
+![Charles Minard's Napoleon's March](images/minard_napoleon.png)
+
+
+## Achieving Minard's Graphical Excellence
+
+> "[Minard's classic image] can be described and admired, but there are no compositional principles on how to create that one wonder graphic in a million.""
+
+*Edward Tufte, The Visual Display of Quantitative Information, 1983*
+
+## For The Rest of Us
+
+Instead, Tufte suggests:
+
+::: {.incremental}
+* "[For] more routine, workaday designs"
+* "[Have] a properly chosen format and design"
+* "Use words, numbers, and drawing together"
+* "[D]isplay an accessible complexity of detail"
+* "Avoid content-free decoration, including chartjunk"
+:::
+
+# Tooling & Workflow
+
+* It is worth investing in learning your tools
+* A good data visualization workflow requires good tooling and workflow
+* Below I discuss some of the tools I use, and why I use them
+
+## R
+
+::: {.columns}
+
+::: {.column width="75%"}
+* R has the most developed data visualization tools for working statisticians and data scientists
+* R can be downloaded from [r-project.org](https://www.r-project.org/)
+:::
+
+::: {.column width="25%"}
+
+![R Logo](images/r.png)
+:::
+
+:::
+
+
+## `ggplot2`
+
+::: {.columns}
+
+::: {.column width="75%"}
+* `ggplot2` is a powerful package for creating data visualizations
+* It is built on the grammar of graphics
+* It is a declarative grammar for data visualization
+:::
+
+::: {.column width="25%"}
+![ggplot2 Logo](images/ggplot2.png)
+:::
+
+:::
+
+## Scientific Notebooks
+
+::: {.columns}
+
+::: {.column width="75%"}
+* Notebooks are a powerful way to work with data and do data visualization
+* They allow you to embed code, text, and visualizations in a single document
+* They thus allow you to easily share both the process and the results of your work
+:::
+
+::: {.column width="25%"}
+![Notebook Logo](images/lab-notebook.jpg)
+:::
+
+:::
+
+## Notebooks: Quarto
+
+::: {.columns}
+
+::: {.column width="75%"}
+* Quarto is an open source scientific and technical publishing system
+* You can create reports, websites, presentations, and books with Quarto
+* This presentation is built with Quarto
+* You can embed Python, R, and other code in in plaintext Quarto documents
+* Quarto renders down to a document in HTML, PDF, or Word format
+:::
+
+::: {.column width="25%"}
+![Quarto Logo](images/quarto.png)
+:::
+
+:::
+
+## RMarkdown
+
+::: {.columns}
+
+::: {.column width="75%"}
+* RMarkdown is a way to create documents that mix R code and text
+* It integrates with RStudio well and has a very similar workflow to Quarto
+* RMarkdown renders down to a document in HTML, PDF, or Word format; the files them selves are plain text
+* Easy to store notebooks in version control with git
+:::
+
+::: {.column width="25%"}
+![RMarkdown Logo](images/rmarkdown.png)
+:::
+
+:::
+
+## Jupyter
+
+::: {.columns}
+
+::: {.column width="75%"}
+* Jupyter is a notebook system popular with Python users
+* Jupyter stores code and results in the same document (Quarto/RMarkdown render into a separate document)
+* Jupyter supports R and other languages
+:::
+
+::: {.column width="25%"}
+![Jupyter Logo](images/jupyter.png)
+:::
+
+:::
+
+
+## Optional/Popular Software
+
+## Positron/VS Code
+
+::: {.columns}
+
+::: {.column width="75%"}
+* Positron is Posit's new IDE
+* It is built on VS
+* Builds in panels and tools for examining data, viewing plots, etc.
+:::
+
+::: {.column width="25%"}
+![Positron, making this presentation](images/positron.png)
+:::
+
+:::
+
+
+## RStudio
+
+::: {.columns}
+
+::: {.column width="75%"}
+* RStudio is a powerful IDE for R
+* It is free and open source
+* It helps you understand what is in your environment (e.g., variables, functions, packages, etc.)
+* It also makes it easy to view your visualizations as you make them
+:::
+
+::: {.column width="25%"}
+![RStudio Logo](images/rstudio.png)
+:::
+
+:::
+
+## Python
+
+::: {.columns}
+
+::: {.column width="75%"}
+* Python is a powerful general purpose programming language that is very popular in the data science community, especially in machine learning
+* It has A-tier data management and scientific computing libraries, such as `pandas` and `numpy`
+* It has a large ecosystem of packages for data visualization, including `matplotlib` and `seaborn`
+:::
+
+::: {.column width="25%"}
+![Python Logo](images/python.png)
+:::
+
+:::
+
+## LLMs
+
+::: {.columns}
+
+::: {.column width="75%"}
+* LLMs are commonly used to help with code
+* Common ones used in data science are ChatGPT, Claude, Gemini, and GitHub's Copilot
+* They can help you write code, debug code, and write documentation
+* They can also make mistakes, so you cannot blindly trust their work
+:::
+
+::: {.column width="25%"}
+![GitHub Copilot Logo](images/copilot.png)
+:::
+
+:::
+
+# AI, LLMs, and Data Visualization
+
+## AI and Data Visualization
+
+* AI and LLMs are becoming more and more powerful
+* They can help you with many data-related tasks, but require care
+
+## My Philosophy
+
+* I use LLMs in nearly all aspects of my work
+* I have found that there is now less value in being able to "make computer do something" and more in high level concepts
+* To that extent, when discussing data visualization, I now focus a little more on concepts and less on `ggplot2` syntax, since LLMs really can mostly solve technical visualization problems with a few minutes of "conversation"
+
+
+## Proof of Concept
+
+* Let's take the mtcars dataset and see what we can do
+
+```
+I have a plot of auto data. The data set is named "auto." The variables I'm interested are: price, efficiency (variable name: mpg), weight, and manufacturer.  The data set only includes the variable "make," which has both the manufacturer and the car name.  Can you first split "make" into "manufacturer" and "model." Weight is a continuous measure, but it would be helpful to split this data into categories of small, medium, and large.
+
+I'd then like a plot comparing efficiency to weight. Facet this into small, medium, and large cars. On each figure, annotate the least efficient car with its make and model, one average car with its make and model, and the most efficient car with its make and model.
+
+Put the code for this in a new quarto notebook named llm-example.qmd
+```
+
+
+# The Grammar of Graphics
+
+## `ggplot2` and the Grammar of Graphics
+
+* The "gg" in ggplot2 stands for the grammar of graphics, a concept coined by Leland Wilkinson and popularized by Hadley Wickham.
+* Grammar in language is a set of rules for how language is structured.
+* Grammar in graphics is a set of rules for how visual representations of data are structured.
+
+## Key Concepts in ggplot2
+
+![ggplot2 workflow](images/gg-flow.png)
+
+
+## `ggplot2` Workflow
+
+::: {.incremental}
+1. Start with data
+2. Pick an aesthetic mapping
+3. Choose a geometric object
+4. Add statistical transformations
+5. Adjust finer details: scales, coordinate systems, faceting, etc.
+:::
+
+## Aesthetic Mappings
+
+
+* This is how your variables map onto the aesthetics of your figure
+* It sounds highfalutin, but it usually just means:
+    - What is your x?
+    - What is your y?
+
+## Geometric Objects ("geoms")
+
+* Geoms are the elements used to represent the data
+* Geoms have associated stats/functions/statistical transformations
+* Stats such as counts for groups often involve aggregations
+
+## Geoms (cont.)
+
+::: {style="font-size: 0.65em;"}
+
+| Geom | R Function | Stat/Transformation | Use for |
+|------|------------|-------------------|----------|
+| Point | `geom_point()` | Identity | Scatter plots |
+| Bar | `geom_bar()` | Count | Bar plots |
+| AB Line | `geom_abline()` | Slope | Line plots |
+| Horizontal line | `geom_hline()` | Y intercept | Reference lines |
+| Vertical line | `geom_vline()` | X intercept | Reference lines |
+| Smoother | `geom_smooth()` | Smoothing function (GAM, Loess, etc.) | Showing patterns/trends |
+
+:::
+
+## Position/Fill
+
+
+* You can use position/fill to move elements around and color code geoms by aspects of the data, such as categories.
+* For example, with a bar chart:
+
+  - `stack`: Stack bars on top of each other
+  - `fill`: Stack bars, but make them always fill up vertical space to 1
+  - `dodge`: Put the bars next to each other
+
+* Tip: When you reach for fill, always consider faceting in small multiples. The brain struggles with fills. More on this later.
+
+## Aggregations
+
+* To make a bar chart, one groups data and takes a mean, proportion, or count
+* Software like ggplot will try to do this for you and it works well for simple cases
+* This can fail with more difficult aggregations or when doing things like applying annotation labels
+* A powerful and frustration-reducing technique is to do the aggregation yourself and then use the `identity` mapping
+* This separates the statistical logic from the visual logic and is often what makes a tricky figure easier to make
+
+
+## Purposes of Visualization: Exploration
+
+- Goal: Understand the data structure, data generating mechanism, relationships among variables, etc.
+- Start here
+- Don't polish; these are for you
+- Still consider good practices: you don't want to misunderstand things because of scale, position, poor color separation, etc.
+
+## Purposes of Visualization: Sharing Results
+
+- Goal: share your findings
+- Get the data and message right
+- Make things look nice
+- Consider text annotation
+- Still don't go too crazy, especially when the target is a journal that will redo your figures
+
+## Some Topics
+
+I've prepared a web site at the [JHBC GitHub](https://jhbiostatcenter.github.io/sparc-data-viz)
+
+* **Selected Topics**: A handful of important topics such as use of position and scales, choosing good visualizations, applications
+* **Colors &amp; Theming**: Accessibilty for the vision impaired, reusable design systems
+* **Refine &amp; Polish**: Using `R` and `ggplot2` to build up and refine visualizations
+* **Causal Inference & DAGs**: Generating DAGs, thinking about what to visualize from a causal inference perspective
+* **Shiny**: Interactive dashboards
+
+
+# Topics
+
+
+## Colors and Accessibility
+
+* RColorBrewer for data-focused palettes
+* Viridis for perceptually uniform, colorblind-friendly colors
+
+[View Example](examples/colors_and_accessibility.html)
+
+## Understanding Univariate Data: Location and Spread
+
+* Following William Cleveland's systematic approach to exploratory data analysis
+* Visual assessment of location, spread, and their relationship:
+* Quantiles, residuals, S-F plots, M-D plots, Q-Q plots, and more
+
+[View Example](examples/applications_7_cleveland_univariate_data.html)
+
+## Causal Inference & DAGs
+
+* Simulating data from directed acyclic graphs
+* Testing assumptions before collecting expensive data
+
+[View Example](examples/dag_sim_data.html)
+
+## Themes and Staying DRY
+
+* Creating reusable theme functions to avoid repetition
+* Building a consistent design system across all visualizations
+
+[View Example](examples/ggplot_themes_and_staying_dry.html)
+
+## Effective Use of Position and Scales
+
+* Why pie charts and bubble charts fail: humans are poor at comparing areas and angles
+* How truncated axes and selective time windows can mislead viewers
+
+[View Example](examples/applications_1_effective_and_honest_scales.html)
+
+## Choropleths for Spatial Data
+
+* Mapping geographic data with color-coded regions
+* Best practices for choosing color scales and handling missing data
+
+[View Example](examples/applications_2_choropleths_for_spatial_data.html)
+
+## Dot Plots for Spatial Data
+
+* Alternative to choropleths that avoids area bias
+* Better for comparing magnitudes across geographic regions
+
+[View Example](examples/applications_3_dot_plot_for_spatial_data.html)
+
+## Distribution Plots
+
+* Box plots, violin plots, and ridgeline plots for showing data distributions
+* Choosing the right visualization for your data's characteristics
+
+[View Example](examples/applications_4_distribution_plots.html)
+
+## Visualizing Time Trends
+
+* Time series plots with smoothing and trend lines
+* Handling seasonal patterns and multiple time series
+
+[View Example](examples/applications_5_visualizing_time_trends.html)
+
+## Visualizing Correlations and Models
+
+* Scatter plots with regression lines and confidence intervals
+* Visualizing interaction effects and predicted probabilities
+
+[View Example](examples/applications_6_visualizing_correlations_and_models.html)
+
+## Refining Visualizations
+
+## PRAMS Data Preparation
+
+* Loading and cleaning CDC PRAMS data
+* Structuring data for visualization with ggplot2
+
+[View Example](examples/prams_1_data_prep.html)
+
+## ggplot2 Fundamentals
+
+* Building plots layer by layer: aesthetics, geoms, scales
+* Creating lollipop charts and emphasizing specific values
+
+[View Example](examples/prams_2_ggplot_concepts.html)
+
+## Iteration and Aggregation
+
+* Improving plots step-by-step through iteration
+* Creating forest plots and faceted visualizations
+
+[View Example](examples/prams_3_iteration_aggregation.html)
+
+## Saving Visualizations
+
+* Export formats (PNG, PDF, SVG) and when to use each
+* Resolution, DPI, and file size considerations
+
+[View Example](examples/saving_visualizations.html)
+
+# Wrap Up
+
+## Questions?
+
+Contact: ewestlund@jhu.edu

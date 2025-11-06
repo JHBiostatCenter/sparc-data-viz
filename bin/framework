@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Framework CLI - Project-Local Launcher (v0.6)
+#
+# This script delegates to framework-global for all commands.
+# The global CLI is now context-aware and handles project vs global commands.
+
+set -e
+
+# Check if framework-global is installed
+if ! command -v framework-global >/dev/null 2>&1; then
+  echo "Error: framework-global not found"
+  echo "Install with: Rscript -e \"framework::cli_install()\""
+  exit 1
+fi
+
+# Delegate to framework-global
+framework-global "$@"
