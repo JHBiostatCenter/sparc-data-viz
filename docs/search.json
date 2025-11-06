@@ -788,7 +788,7 @@
     "href": "presentation.html#some-topics",
     "title": "Data Visualization",
     "section": "Some Topics",
-    "text": "Some Topics\nI’ve prepared a web site at the JHBC GitHub\n\nSelected Topics: A handful of important topics such as use of position and scales, choosing good visualizations, applications\nColors & Theming: Accessibilty for the vision impaired, reusable design systems\nRefine & Polish: Using R and ggplot2 to build up and refine visualizations\nCausal Inference & DAGs: Generating DAGs, thinking about what to visualize from a causal inference perspective\nShiny: Interactive dashboards"
+    "text": "Some Topics\nI’ve prepared a web site at the JHBC GitHub.\nWe can choose our own adventure. The order is somewhat sensible.\n\nExploratory Data Analysis: Exploring data to understand it\nColors & Theming: Accessibilty for the vision impaired, reusable design systems\nCausal Inference & DAGs: Generating DAGs easily to help think about causal structures for causal inference\nSelected Topics: A handful of important topics such as use of position and scales, choosing good visualizations, applications\nRefine & Polish: Using R and ggplot2 to build up and refine visualizations\nShiny: Interactive dashboards"
   },
   {
     "objectID": "presentation.html#foundations",

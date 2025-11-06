@@ -426,24 +426,19 @@ Put the code for this in a new quarto notebook named llm-example.qmd
 
 ## Some Topics
 
-I've prepared a web site at the [JHBC GitHub](https://jhbiostatcenter.github.io/sparc-data-viz)
+I've prepared a web site at the [JHBC GitHub](https://jhbiostatcenter.github.io/sparc-data-viz).
 
-* **Selected Topics**: A handful of important topics such as use of position and scales, choosing good visualizations, applications
+We can choose our own adventure. The order is somewhat sensible.
+
+* **Exploratory Data Analysis**: Exploring data to understand it
 * **Colors &amp; Theming**: Accessibilty for the vision impaired, reusable design systems
+* **Causal Inference & DAGs**: Generating DAGs easily to help think about causal structures for causal inference
+* **Selected Topics**: A handful of important topics such as use of position and scales, choosing good visualizations, applications
 * **Refine &amp; Polish**: Using `R` and `ggplot2` to build up and refine visualizations
-* **Causal Inference & DAGs**: Generating DAGs, thinking about what to visualize from a causal inference perspective
 * **Shiny**: Interactive dashboards
 
 
 # Topics
-
-
-## Colors and Accessibility
-
-* RColorBrewer for data-focused palettes
-* Viridis for perceptually uniform, colorblind-friendly colors
-
-[View Example](examples/colors_and_accessibility.html)
 
 ## Understanding Univariate Data: Location and Spread
 
@@ -453,11 +448,12 @@ I've prepared a web site at the [JHBC GitHub](https://jhbiostatcenter.github.io/
 
 [View Example](examples/applications_7_cleveland_univariate_data.html)
 
-## Causal Inference & Making DAGs
+## Colors and Accessibility
 
-* DAGs made easy
+* RColorBrewer for data-focused palettes
+* Viridis for perceptually uniform, colorblind-friendly colors
 
-[View Example](examples/making_dags.html)
+[View Example](examples/colors_and_accessibility.html)
 
 ## Themes and Staying DRY
 
@@ -465,6 +461,13 @@ I've prepared a web site at the [JHBC GitHub](https://jhbiostatcenter.github.io/
 * Building a consistent design system across all visualizations
 
 [View Example](examples/ggplot_themes_and_staying_dry.html)
+
+
+## Causal Inference & Making DAGs
+
+* DAGs made easy
+
+[View Example](examples/making_dags.html)
 
 ## Effective Use of Position and Scales
 

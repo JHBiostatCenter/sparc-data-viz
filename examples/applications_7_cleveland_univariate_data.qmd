@@ -27,8 +27,7 @@ required_packages <- c(
   "ggplot2",
   "tidyr",
   "patchwork",
-  "moments",
-  "tukeyedar"
+  "moments"
 )
 
 # Install missing packages
