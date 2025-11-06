@@ -196,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="welcome" class="level2">
 <h2 class="anchored" data-anchor-id="welcome">Welcome</h2>
-<p>This site contains materials for learning data visualization in R using <code>ggplot2</code> and the grammar of graphics approach. These materials emphasize Edward Tufte’s principles of graphical excellence: well-designed presentations of interesting data that tell the truth.</p>
+<p>This site contains materials for learning data visualization in R using <code>ggplot2</code> and other tools. It was assembled for the SPARC data visualization seminar (2025).</p>
 </section>
 <section id="contents" class="level2">
 <h2 class="anchored" data-anchor-id="contents">Contents</h2>
@@ -206,10 +206,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="the-substance-statistics-and-design-behind-good-honest-graphics"><em>The substance, statistics, and design behind good, honest graphics</em></h4>
 <ul>
 <li>Edward Tufte’s principles of graphical excellence</li>
-<li>Tooling and workflow (R, ggplot2, Quarto, RStudio)</li>
+<li>Tooling and workflow (R, ggplot2, scientific notebooks)</li>
 <li>The grammar of graphics</li>
-<li>Building visualizations layer by layer with PRAMS data</li>
-<li>Choose-your-own-adventure topics</li>
+<li>Selected topics</li>
 </ul>
 </section>
 </section>
@@ -734,7 +733,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Welcome</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This site contains materials for learning data visualization in R using <span class="in">`ggplot2`</span> and the grammar of graphics approach. These materials emphasize Edward Tufte's principles of graphical excellence: well-designed presentations of interesting data that tell the truth.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This site contains materials for learning data visualization in R using <span class="in">`ggplot2`</span> and other tools. It was assembled for the SPARC data visualization seminar (2025).</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contents</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -742,61 +741,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">#### *The substance, statistics, and design behind good, honest graphics*</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Edward Tufte's principles of graphical excellence</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tooling and workflow (R, ggplot2, Quarto, RStudio)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tooling and workflow (R, ggplot2, scientific notebooks)</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The grammar of graphics</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Building visualizations layer by layer with PRAMS data</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Choose-your-own-adventure topics</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### Examples &amp;amp; Illustrations</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Selected topics</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### Examples &amp;amp; Illustrations</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Understanding Univariate Data: Location and Spread**</span><span class="co">](examples/cleveland_univariate_data.html)</span> - Following William Cleveland's systematic approach to exploratory data analysis</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Effective Use of Position and Scales**</span><span class="co">](examples/applications_1_effective_and_honest_scales.html)</span> - Understanding how scale choices affect interpretation</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Colors and Accessibility**</span><span class="co">](examples/colors_and_accessibility.html)</span> - RColorBrewer, Viridis, and custom palettes</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Themes and Staying DRY**</span><span class="co">](examples/ggplot_themes_and_staying_dry.html)</span> - Reusable design systems</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Making DAGs**</span><span class="co">](examples/making_dags.html)</span> - Simulating data from causal models</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Choropleths for Spatial Data**</span><span class="co">](examples/applications_2_choropleths_for_spatial_data.html)</span> - Mapping geographic data</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Dot Plots for Spatial Data**</span><span class="co">](examples/applications_3_dot_plot_for_spatial_data.html)</span> - Alternative spatial visualizations</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Distribution Plots**</span><span class="co">](examples/applications_4_distribution_plots.html)</span> - Showing data distributions effectively</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Visualizing Time Trends**</span><span class="co">](examples/applications_5_visualizing_time_trends.html)</span> - Time series best practices</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Visualizing Correlations and Models**</span><span class="co">](examples/applications_6_visualizing_correlations_and_models.html)</span> - Regression and relationship plots</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Saving Visualizations**</span><span class="co">](examples/saving_visualizations.html)</span> - Export formats and best practices</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Refining Visualizations with `ggplot2` and PRAMS Data</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**PRAMS Data Preparation**</span><span class="co">](examples/prams_1_data_prep.html)</span> - Preparing data for visualization</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**ggplot2 Fundamentals**</span><span class="co">](examples/prams_2_ggplot_concepts.html)</span> - Core concepts and workflow</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Iteration and Aggregation**</span><span class="co">](examples/prams_3_iteration_aggregation.html)</span> - Building better plots step-by-step</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Advanced Topics</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Shiny Dashboards** - Interactive web applications (requires running locally with R). See <span class="in">`examples/shiny_example.R`</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Understanding Univariate Data: Location and Spread**</span><span class="co">](examples/cleveland_univariate_data.html)</span> - Following William Cleveland's systematic approach to exploratory data analysis</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Effective Use of Position and Scales**</span><span class="co">](examples/applications_1_effective_and_honest_scales.html)</span> - Understanding how scale choices affect interpretation</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Colors and Accessibility**</span><span class="co">](examples/colors_and_accessibility.html)</span> - RColorBrewer, Viridis, and custom palettes</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Themes and Staying DRY**</span><span class="co">](examples/ggplot_themes_and_staying_dry.html)</span> - Reusable design systems</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Making DAGs**</span><span class="co">](examples/making_dags.html)</span> - Simulating data from causal models</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Choropleths for Spatial Data**</span><span class="co">](examples/applications_2_choropleths_for_spatial_data.html)</span> - Mapping geographic data</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Dot Plots for Spatial Data**</span><span class="co">](examples/applications_3_dot_plot_for_spatial_data.html)</span> - Alternative spatial visualizations</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Distribution Plots**</span><span class="co">](examples/applications_4_distribution_plots.html)</span> - Showing data distributions effectively</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Visualizing Time Trends**</span><span class="co">](examples/applications_5_visualizing_time_trends.html)</span> - Time series best practices</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Visualizing Correlations and Models**</span><span class="co">](examples/applications_6_visualizing_correlations_and_models.html)</span> - Regression and relationship plots</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Saving Visualizations**</span><span class="co">](examples/saving_visualizations.html)</span> - Export formats and best practices</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Refining Visualizations with `ggplot2` and PRAMS Data</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**PRAMS Data Preparation**</span><span class="co">](examples/prams_1_data_prep.html)</span> - Preparing data for visualization</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**ggplot2 Fundamentals**</span><span class="co">](examples/prams_2_ggplot_concepts.html)</span> - Core concepts and workflow</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Iteration and Aggregation**</span><span class="co">](examples/prams_3_iteration_aggregation.html)</span> - Building better plots step-by-step</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Advanced Topics</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Shiny Dashboards** - Interactive web applications (requires running locally with R). See <span class="in">`examples/shiny_example.R`</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>The repository contains two main data directories:</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`data/raw/`</span>: Contains the original, unmodified data files used in the course</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`data/processed/`</span>: Contains processed and cleaned versions of the data, ready for analysis</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### PRAMS Data</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>The Pregnancy Risk Assessment Monitoring System (PRAMS) data used in the examples on Day 2 is not included in the repository due to its large size (150MB+). However, you can download it directly from the CDC's data portal:</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">CDC PRAMStat Data for 2011</span><span class="co">](https://data.cdc.gov/Maternal-Child-Health/CDC-PRAMStat-Data-for-2011/ese6-rqpq/about_data)</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>This dataset contains state-level maternal health data from 2011, including information about maternal behaviors and experiences before, during, and after pregnancy. It is used in the a</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Credits</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A major debt is owed to Kieran Healy for his <span class="co">[</span><span class="ot">Data Visualization book</span><span class="co">](https://socviz.co/)</span>.</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Many of the materials here were first developed for the <span class="co">[</span><span class="ot">Johns Hopkins Maternal Health Data Innovation and Coordinating Hub</span><span class="co">](https://maternalhealthhub.jhu.edu/johns-hopkins-university#:~:text=The%20Hub%20is%20a%20multidisciplinary,Medicine%20at%20Johns%20Hopkins%20University)</span> of the <span class="co">[</span><span class="ot">NIH Maternal Health Research Centers of Excellence</span><span class="co">](https://www.nih.gov/news-events/news-releases/nih-establishes-maternal-health-research-centers-excellence)</span>.</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>LLMs were used to aid in creation of many of the visuals in this course. Any mistakes made by LLMs are my responsibility.</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Contact</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>Erik Westlund</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Johns Hopkins Biostatistics Center</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">ewestlund@jhu.edu</span><span class="co">](mailto:ewestlund@jhu.edu)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>The repository contains two main data directories:</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`data/raw/`</span>: Contains the original, unmodified data files used in the course</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`data/processed/`</span>: Contains processed and cleaned versions of the data, ready for analysis</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">### PRAMS Data</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>The Pregnancy Risk Assessment Monitoring System (PRAMS) data used in the examples on Day 2 is not included in the repository due to its large size (150MB+). However, you can download it directly from the CDC's data portal:</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">CDC PRAMStat Data for 2011</span><span class="co">](https://data.cdc.gov/Maternal-Child-Health/CDC-PRAMStat-Data-for-2011/ese6-rqpq/about_data)</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>This dataset contains state-level maternal health data from 2011, including information about maternal behaviors and experiences before, during, and after pregnancy. It is used in the a</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Credits</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A major debt is owed to Kieran Healy for his <span class="co">[</span><span class="ot">Data Visualization book</span><span class="co">](https://socviz.co/)</span>.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Many of the materials here were first developed for the <span class="co">[</span><span class="ot">Johns Hopkins Maternal Health Data Innovation and Coordinating Hub</span><span class="co">](https://maternalhealthhub.jhu.edu/johns-hopkins-university#:~:text=The%20Hub%20is%20a%20multidisciplinary,Medicine%20at%20Johns%20Hopkins%20University)</span> of the <span class="co">[</span><span class="ot">NIH Maternal Health Research Centers of Excellence</span><span class="co">](https://www.nih.gov/news-events/news-releases/nih-establishes-maternal-health-research-centers-excellence)</span>.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>LLMs were used to aid in creation of many of the visuals in this course. Any mistakes made by LLMs are my responsibility.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### Contact</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>Erik Westlund</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>Johns Hopkins Biostatistics Center</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">ewestlund@jhu.edu</span><span class="co">](mailto:ewestlund@jhu.edu)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

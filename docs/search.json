@@ -942,21 +942,21 @@
     "href": "index.html",
     "title": "Data Visualization",
     "section": "",
-    "text": "This site contains materials for learning data visualization in R using ggplot2 and the grammar of graphics approach. These materials emphasize Edward Tufte’s principles of graphical excellence: well-designed presentations of interesting data that tell the truth."
+    "text": "This site contains materials for learning data visualization in R using ggplot2 and other tools. It was assembled for the SPARC data visualization seminar (2025)."
   },
   {
     "objectID": "index.html#welcome",
     "href": "index.html#welcome",
     "title": "Data Visualization",
     "section": "",
-    "text": "This site contains materials for learning data visualization in R using ggplot2 and the grammar of graphics approach. These materials emphasize Edward Tufte’s principles of graphical excellence: well-designed presentations of interesting data that tell the truth."
+    "text": "This site contains materials for learning data visualization in R using ggplot2 and other tools. It was assembled for the SPARC data visualization seminar (2025)."
   },
   {
     "objectID": "index.html#contents",
     "href": "index.html#contents",
     "title": "Data Visualization",
     "section": "Contents",
-    "text": "Contents\n\nPresentation: Data Visualization\n\nThe substance, statistics, and design behind good, honest graphics\n\nEdward Tufte’s principles of graphical excellence\nTooling and workflow (R, ggplot2, Quarto, RStudio)\nThe grammar of graphics\nBuilding visualizations layer by layer with PRAMS data\nChoose-your-own-adventure topics\n\n\n\n\nExamples & Illustrations\n\nUnderstanding Univariate Data: Location and Spread - Following William Cleveland’s systematic approach to exploratory data analysis\nEffective Use of Position and Scales - Understanding how scale choices affect interpretation\nColors and Accessibility - RColorBrewer, Viridis, and custom palettes\nThemes and Staying DRY - Reusable design systems\nMaking DAGs - Simulating data from causal models\nChoropleths for Spatial Data - Mapping geographic data\nDot Plots for Spatial Data - Alternative spatial visualizations\nDistribution Plots - Showing data distributions effectively\nVisualizing Time Trends - Time series best practices\nVisualizing Correlations and Models - Regression and relationship plots\nSaving Visualizations - Export formats and best practices\n\n\nRefining Visualizations with ggplot2 and PRAMS Data\n\nPRAMS Data Preparation - Preparing data for visualization\nggplot2 Fundamentals - Core concepts and workflow\nIteration and Aggregation - Building better plots step-by-step\n\n\n\nAdvanced Topics\n\nShiny Dashboards - Interactive web applications (requires running locally with R). See examples/shiny_example.R"
+    "text": "Contents\n\nPresentation: Data Visualization\n\nThe substance, statistics, and design behind good, honest graphics\n\nEdward Tufte’s principles of graphical excellence\nTooling and workflow (R, ggplot2, scientific notebooks)\nThe grammar of graphics\nSelected topics\n\n\n\n\nExamples & Illustrations\n\nUnderstanding Univariate Data: Location and Spread - Following William Cleveland’s systematic approach to exploratory data analysis\nEffective Use of Position and Scales - Understanding how scale choices affect interpretation\nColors and Accessibility - RColorBrewer, Viridis, and custom palettes\nThemes and Staying DRY - Reusable design systems\nMaking DAGs - Simulating data from causal models\nChoropleths for Spatial Data - Mapping geographic data\nDot Plots for Spatial Data - Alternative spatial visualizations\nDistribution Plots - Showing data distributions effectively\nVisualizing Time Trends - Time series best practices\nVisualizing Correlations and Models - Regression and relationship plots\nSaving Visualizations - Export formats and best practices\n\n\nRefining Visualizations with ggplot2 and PRAMS Data\n\nPRAMS Data Preparation - Preparing data for visualization\nggplot2 Fundamentals - Core concepts and workflow\nIteration and Aggregation - Building better plots step-by-step\n\n\n\nAdvanced Topics\n\nShiny Dashboards - Interactive web applications (requires running locally with R). See examples/shiny_example.R"
   },
   {
     "objectID": "index.html#data",

@@ -6,7 +6,7 @@ author: "Erik Westlund"
 
 ## Welcome
 
-This site contains materials for learning data visualization in R using `ggplot2` and the grammar of graphics approach. These materials emphasize Edward Tufte's principles of graphical excellence: well-designed presentations of interesting data that tell the truth.
+This site contains materials for learning data visualization in R using `ggplot2` and other tools. It was assembled for the SPARC data visualization seminar (2025).
 
 ## Contents
 
@@ -14,10 +14,9 @@ This site contains materials for learning data visualization in R using `ggplot2
 #### *The substance, statistics, and design behind good, honest graphics*
 
 - Edward Tufte's principles of graphical excellence
-- Tooling and workflow (R, ggplot2, Quarto, RStudio)
+- Tooling and workflow (R, ggplot2, scientific notebooks)
 - The grammar of graphics
-- Building visualizations layer by layer with PRAMS data
-- Choose-your-own-adventure topics
+- Selected topics
 
 ### Examples &amp; Illustrations
 
