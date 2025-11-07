@@ -40,7 +40,6 @@ library(ggplot2)
 library(tidyr)
 library(patchwork)
 library(moments)
-library(tukeyedar)
 
 # Set theme
 theme_set(theme_minimal())
