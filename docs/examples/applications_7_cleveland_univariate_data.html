@@ -521,7 +521,7 @@ window.Quarto = {
 <li><strong>Hospital C</strong>: Wider vertical band shows higher variability due to outliers</li>
 <li><strong>Hospital D</strong>: Bimodal distribution creates a different spread pattern</li>
 </ul>
-<p>The <strong>red line</strong> is key: - <strong>Flat red line</strong> = constant spread (homoskedastic) → assumptions of pooled t-tests, ANOVA, OLS are satisfied - <strong>Upward sloping red line</strong> = monotone spread (heteroskedastic) → variance increases with location, violating homoskedasticity assumptions</p>
+<p>The <strong>red line</strong> is key: - <strong>Flat red line</strong> = constant spread (homoskedastic): assumptions of pooled t-tests, ANOVA, OLS are satisfied - <strong>Upward sloping red line</strong> = monotone spread (heteroskedastic): variance increases with location, violating homoskedasticity assumptions</p>
 </section>
 <section id="mean-difference-plot" class="level2">
 <h2 class="anchored" data-anchor-id="mean-difference-plot">Mean-Difference Plot</h2>
@@ -588,7 +588,7 @@ window.Quarto = {
 <p><strong>Interpretation</strong>:</p>
 <ul>
 <li><strong>Hospital B vs A</strong>: Relatively flat red line around +4 days means <strong>constant spread</strong> (simple location shift)</li>
-<li><strong>Hospital C vs A</strong>: Upward-sloping red line → <strong>monotone spread</strong> (variability increases at higher values due to outliers)</li>
+<li><strong>Hospital C vs A</strong>: Upward-sloping red line: <strong>monotone spread</strong> (variability increases at higher values due to outliers)</li>
 </ul>
 <p>This type of plot is essential in method comparison studies and reveals patterns that simple correlation or regression would miss.</p>
 </section>
@@ -648,7 +648,7 @@ window.Quarto = {
 <p><strong>Interpretation</strong>:</p>
 <ul>
 <li><strong>Hospital A &amp; B</strong>: Residuals are roughly symmetric around zero (red dashed line)</li>
-<li><strong>Hospital C</strong>: Positive outlier residuals → some patients take much longer than the mean</li>
+<li><strong>Hospital C</strong>: Positive outlier residuals: some patients take much longer than the mean</li>
 <li><strong>Hospital D</strong>: Wider spread of residuals reflects the bimodal distribution</li>
 </ul>
 <p>When residuals show patterns (asymmetry, increasing spread, etc.), this suggests the simple mean doesn’t fully capture the data structure.</p>
@@ -789,15 +789,15 @@ window.Quarto = {
 <li>Each colored band represents one hospital</li>
 <li>Band width = proportion of patients in that hospital</li>
 <li>Band height = how far that hospital’s average is from the overall average</li>
-<li><strong>Wide vertical spread</strong> → hospitals differ a lot → grouping explains variation</li>
-<li><strong>Narrow vertical spread</strong> → hospitals are similar → grouping doesn’t help much</li>
+<li><strong>Wide vertical spread</strong> = hospitals differ a lot: grouping explains variation</li>
+<li><strong>Narrow vertical spread</strong> = hospitals are similar: grouping doesn’t help much</li>
 </ul>
 <p><strong>Right Panel - Within-Group Variation</strong>:</p>
 <ul>
 <li>All residuals pooled together (no colors)</li>
 <li>Shows what’s left after accounting for hospital differences</li>
-<li><strong>Wide vertical spread</strong> → lots of unexplained variation remains</li>
-<li><strong>Narrow vertical spread</strong> → hospital membership explains most of the variation</li>
+<li><strong>Wide vertical spread</strong>: lots of unexplained variation remains</li>
+<li><strong>Narrow vertical spread</strong>: hospital membership explains most of the variation</li>
 <li>Points should scatter randomly around zero (horizontal line)</li>
 </ul>
 <p><strong>The Key Insight</strong>:</p>
@@ -862,8 +862,8 @@ window.Quarto = {
 </div>
 <p><strong>Interpretation</strong>:</p>
 <ul>
-<li><strong>Left panel</strong>: Original earnings curve <strong>upward</strong> at upper quantiles → right skew</li>
-<li><strong>Right panel</strong>: Log(earnings) points lie on the line → approximately normal</li>
+<li><strong>Left panel</strong>: Original earnings curve <strong>upward</strong> at upper quantiles: right skew</li>
+<li><strong>Right panel</strong>: Log(earnings) points lie on the line: approximately normal</li>
 <li><strong>Why it works</strong>: Log transforms multiplicative relationships into additive ones</li>
 <li>On log scale, a 10% raise is the same distance for everyone</li>
 </ul>
@@ -1654,8 +1654,8 @@ window.Quarto = {
 <span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hospital D**: Bimodal distribution creates a different spread pattern</span>
 <span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a>The **red line** is key:</span>
-<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Flat red line** = constant spread (homoskedastic) → assumptions of pooled t-tests, ANOVA, OLS are satisfied</span>
-<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Upward sloping red line** = monotone spread (heteroskedastic) → variance increases with location, violating homoskedasticity assumptions</span>
+<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Flat red line** = constant spread (homoskedastic): assumptions of pooled t-tests, ANOVA, OLS are satisfied</span>
+<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Upward sloping red line** = monotone spread (heteroskedastic): variance increases with location, violating homoskedasticity assumptions</span>
 <span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mean-Difference Plot</span></span>
 <span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a></span>
@@ -1716,7 +1716,7 @@ window.Quarto = {
 <span id="cb13-292"><a href="#cb13-292" aria-hidden="true" tabindex="-1"></a>**Interpretation**:</span>
 <span id="cb13-293"><a href="#cb13-293" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-294"><a href="#cb13-294" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hospital B vs A**: Relatively flat red line around +4 days means **constant spread** (simple location shift)</span>
-<span id="cb13-295"><a href="#cb13-295" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hospital C vs A**: Upward-sloping red line → **monotone spread** (variability increases at higher values due to outliers)</span>
+<span id="cb13-295"><a href="#cb13-295" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hospital C vs A**: Upward-sloping red line: **monotone spread** (variability increases at higher values due to outliers)</span>
 <span id="cb13-296"><a href="#cb13-296" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-297"><a href="#cb13-297" aria-hidden="true" tabindex="-1"></a>This type of plot is essential in method comparison studies and reveals patterns that simple correlation or regression would miss.</span>
 <span id="cb13-298"><a href="#cb13-298" aria-hidden="true" tabindex="-1"></a></span>
@@ -1776,7 +1776,7 @@ window.Quarto = {
 <span id="cb13-352"><a href="#cb13-352" aria-hidden="true" tabindex="-1"></a>**Interpretation**:</span>
 <span id="cb13-353"><a href="#cb13-353" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-354"><a href="#cb13-354" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hospital A &amp; B**: Residuals are roughly symmetric around zero (red dashed line)</span>
-<span id="cb13-355"><a href="#cb13-355" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hospital C**: Positive outlier residuals → some patients take much longer than the mean</span>
+<span id="cb13-355"><a href="#cb13-355" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hospital C**: Positive outlier residuals: some patients take much longer than the mean</span>
 <span id="cb13-356"><a href="#cb13-356" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hospital D**: Wider spread of residuals reflects the bimodal distribution</span>
 <span id="cb13-357"><a href="#cb13-357" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-358"><a href="#cb13-358" aria-hidden="true" tabindex="-1"></a>When residuals show patterns (asymmetry, increasing spread, etc.), this suggests the simple mean doesn't fully capture the data structure.</span>
@@ -1917,15 +1917,15 @@ window.Quarto = {
 <span id="cb13-493"><a href="#cb13-493" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each colored band represents one hospital</span>
 <span id="cb13-494"><a href="#cb13-494" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Band width = proportion of patients in that hospital</span>
 <span id="cb13-495"><a href="#cb13-495" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Band height = how far that hospital's average is from the overall average</span>
-<span id="cb13-496"><a href="#cb13-496" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Wide vertical spread** → hospitals differ a lot → grouping explains variation</span>
-<span id="cb13-497"><a href="#cb13-497" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Narrow vertical spread** → hospitals are similar → grouping doesn't help much</span>
+<span id="cb13-496"><a href="#cb13-496" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Wide vertical spread** = hospitals differ a lot: grouping explains variation</span>
+<span id="cb13-497"><a href="#cb13-497" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Narrow vertical spread** = hospitals are similar: grouping doesn't help much</span>
 <span id="cb13-498"><a href="#cb13-498" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-499"><a href="#cb13-499" aria-hidden="true" tabindex="-1"></a>**Right Panel - Within-Group Variation**:</span>
 <span id="cb13-500"><a href="#cb13-500" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-501"><a href="#cb13-501" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>All residuals pooled together (no colors)</span>
 <span id="cb13-502"><a href="#cb13-502" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Shows what's left after accounting for hospital differences</span>
-<span id="cb13-503"><a href="#cb13-503" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Wide vertical spread** → lots of unexplained variation remains</span>
-<span id="cb13-504"><a href="#cb13-504" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Narrow vertical spread** → hospital membership explains most of the variation</span>
+<span id="cb13-503"><a href="#cb13-503" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Wide vertical spread**: lots of unexplained variation remains</span>
+<span id="cb13-504"><a href="#cb13-504" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Narrow vertical spread**: hospital membership explains most of the variation</span>
 <span id="cb13-505"><a href="#cb13-505" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Points should scatter randomly around zero (horizontal line)</span>
 <span id="cb13-506"><a href="#cb13-506" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-507"><a href="#cb13-507" aria-hidden="true" tabindex="-1"></a>**The Key Insight**:</span>
@@ -1988,8 +1988,8 @@ window.Quarto = {
 <span id="cb13-564"><a href="#cb13-564" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-565"><a href="#cb13-565" aria-hidden="true" tabindex="-1"></a>**Interpretation**:</span>
 <span id="cb13-566"><a href="#cb13-566" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-567"><a href="#cb13-567" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Left panel**: Original earnings curve **upward** at upper quantiles → right skew</span>
-<span id="cb13-568"><a href="#cb13-568" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Right panel**: Log(earnings) points lie on the line → approximately normal</span>
+<span id="cb13-567"><a href="#cb13-567" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Left panel**: Original earnings curve **upward** at upper quantiles: right skew</span>
+<span id="cb13-568"><a href="#cb13-568" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Right panel**: Log(earnings) points lie on the line: approximately normal</span>
 <span id="cb13-569"><a href="#cb13-569" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Why it works**: Log transforms multiplicative relationships into additive ones</span>
 <span id="cb13-570"><a href="#cb13-570" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On log scale, a 10% raise is the same distance for everyone</span>
 <span id="cb13-571"><a href="#cb13-571" aria-hidden="true" tabindex="-1"></a></span>

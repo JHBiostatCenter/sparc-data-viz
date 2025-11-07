@@ -230,8 +230,8 @@ Each point represents one observation, plotted at its group's median on the x-ax
 - **Hospital D**: Bimodal distribution creates a different spread pattern
 
 The **red line** is key:
-- **Flat red line** = constant spread (homoskedastic) → assumptions of pooled t-tests, ANOVA, OLS are satisfied
-- **Upward sloping red line** = monotone spread (heteroskedastic) → variance increases with location, violating homoskedasticity assumptions
+- **Flat red line** = constant spread (homoskedastic): assumptions of pooled t-tests, ANOVA, OLS are satisfied
+- **Upward sloping red line** = monotone spread (heteroskedastic): variance increases with location, violating homoskedasticity assumptions
 
 ## Mean-Difference Plot
 
@@ -292,7 +292,7 @@ ggplot(comparison_pairs, aes(x = mean_value, y = difference)) +
 **Interpretation**:
 
 - **Hospital B vs A**: Relatively flat red line around +4 days means **constant spread** (simple location shift)
-- **Hospital C vs A**: Upward-sloping red line → **monotone spread** (variability increases at higher values due to outliers)
+- **Hospital C vs A**: Upward-sloping red line: **monotone spread** (variability increases at higher values due to outliers)
 
 This type of plot is essential in method comparison studies and reveals patterns that simple correlation or regression would miss.
 
@@ -352,7 +352,7 @@ ggplot(residual_data, aes(x = hospital, y = residual, fill = hospital)) +
 **Interpretation**:
 
 - **Hospital A & B**: Residuals are roughly symmetric around zero (red dashed line)
-- **Hospital C**: Positive outlier residuals → some patients take much longer than the mean
+- **Hospital C**: Positive outlier residuals: some patients take much longer than the mean
 - **Hospital D**: Wider spread of residuals reflects the bimodal distribution
 
 When residuals show patterns (asymmetry, increasing spread, etc.), this suggests the simple mean doesn't fully capture the data structure.
@@ -493,15 +493,15 @@ p_fitted + p_residual +
 - Each colored band represents one hospital
 - Band width = proportion of patients in that hospital
 - Band height = how far that hospital's average is from the overall average
-- **Wide vertical spread** → hospitals differ a lot → grouping explains variation
-- **Narrow vertical spread** → hospitals are similar → grouping doesn't help much
+- **Wide vertical spread** = hospitals differ a lot: grouping explains variation
+- **Narrow vertical spread** = hospitals are similar: grouping doesn't help much
 
 **Right Panel - Within-Group Variation**:
 
 - All residuals pooled together (no colors)
 - Shows what's left after accounting for hospital differences
-- **Wide vertical spread** → lots of unexplained variation remains
-- **Narrow vertical spread** → hospital membership explains most of the variation
+- **Wide vertical spread**: lots of unexplained variation remains
+- **Narrow vertical spread**: hospital membership explains most of the variation
 - Points should scatter randomly around zero (horizontal line)
 
 **The Key Insight**:
@@ -564,8 +564,8 @@ p1 + p2 +
 
 **Interpretation**:
 
-- **Left panel**: Original earnings curve **upward** at upper quantiles → right skew
-- **Right panel**: Log(earnings) points lie on the line → approximately normal
+- **Left panel**: Original earnings curve **upward** at upper quantiles: right skew
+- **Right panel**: Log(earnings) points lie on the line: approximately normal
 - **Why it works**: Log transforms multiplicative relationships into additive ones
 - On log scale, a 10% raise is the same distance for everyone
 
