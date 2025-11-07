@@ -877,6 +877,7 @@ window.Quarto = {
 <li><span class="math inline">\(x^3\)</span> (cube)</li>
 <li><span class="math inline">\(x^2\)</span> (square)</li>
 <li><span class="math inline">\(x^1\)</span> (original, no transformation)</li>
+<li><span class="math inline">\(log(x)\)</span> (log x; see below)</li>
 <li><span class="math inline">\(x^{1/2}\)</span> (square root)</li>
 <li><span class="math inline">\(x^{-1}\)</span> (reciprocal)</li>
 <li><span class="math inline">\(x^{-2}\)</span> (reciprocal square)</li>
@@ -2003,90 +2004,91 @@ window.Quarto = {
 <span id="cb13-579"><a href="#cb13-579" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^3$ (cube)</span>
 <span id="cb13-580"><a href="#cb13-580" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^2$ (square)</span>
 <span id="cb13-581"><a href="#cb13-581" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^1$ (original, no transformation)</span>
-<span id="cb13-582"><a href="#cb13-582" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^{1/2}$ (square root)</span>
-<span id="cb13-583"><a href="#cb13-583" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^{-1}$ (reciprocal)</span>
-<span id="cb13-584"><a href="#cb13-584" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^{-2}$ (reciprocal square)</span>
-<span id="cb13-585"><a href="#cb13-585" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^{-3}$ (reciprocal cube)</span>
-<span id="cb13-586"><a href="#cb13-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-587"><a href="#cb13-587" aria-hidden="true" tabindex="-1"></a>I add $\log(x)$ in there too. You can think of it as the limit of $x^p$ as $p$ approaches 0, since for small $p$, $x^p$ behaves similarly to $\log(x)$. Cleveland (1993, p. 56) explains that the derivative of $\log(x)$ is $\frac{1}{x}$, and the derivative of $x^{0.001}$ is proportional to $x^{-0.999}$. The intuition is:</span>
-<span id="cb13-588"><a href="#cb13-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-589"><a href="#cb13-589" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For large $p$, you get steep curves ($x^2$, $x^3$).</span>
-<span id="cb13-590"><a href="#cb13-590" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For small $p$, they flatten out and start to look like $\log(x)$.</span>
-<span id="cb13-591"><a href="#cb13-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-592"><a href="#cb13-592" aria-hidden="true" tabindex="-1"></a><span class="in">```{r transformation_comparison}</span></span>
-<span id="cb13-593"><a href="#cb13-593" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.height: 9</span></span>
-<span id="cb13-594"><a href="#cb13-594" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.width: 12</span></span>
-<span id="cb13-595"><a href="#cb13-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-596"><a href="#cb13-596" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb13-597"><a href="#cb13-597" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-598"><a href="#cb13-598" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the earnings data from Example 1</span></span>
-<span id="cb13-599"><a href="#cb13-599" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
-<span id="cb13-600"><a href="#cb13-600" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb13-601"><a href="#cb13-601" aria-hidden="true" tabindex="-1"></a>earnings <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fu">log</span>(<span class="dv">50000</span>), <span class="at">sd =</span> <span class="fl">0.6</span>))</span>
-<span id="cb13-602"><a href="#cb13-602" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-603"><a href="#cb13-603" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply different power transformations</span></span>
-<span id="cb13-604"><a href="#cb13-604" aria-hidden="true" tabindex="-1"></a>transformation_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb13-605"><a href="#cb13-605" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> earnings</span>
-<span id="cb13-606"><a href="#cb13-606" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb13-607"><a href="#cb13-607" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-608"><a href="#cb13-608" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_cubed =</span> x<span class="sc">^</span><span class="dv">3</span>,</span>
-<span id="cb13-609"><a href="#cb13-609" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_squared =</span> x<span class="sc">^</span><span class="dv">2</span>,</span>
-<span id="cb13-610"><a href="#cb13-610" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_original =</span> x,</span>
-<span id="cb13-611"><a href="#cb13-611" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_log =</span> <span class="fu">log</span>(x),</span>
-<span id="cb13-612"><a href="#cb13-612" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_sqrt =</span> <span class="fu">sqrt</span>(x),</span>
-<span id="cb13-613"><a href="#cb13-613" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_inv =</span> <span class="dv">1</span><span class="sc">/</span>x,</span>
-<span id="cb13-614"><a href="#cb13-614" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_inv_squared =</span> <span class="dv">1</span><span class="sc">/</span>(x<span class="sc">^</span><span class="dv">2</span>),</span>
-<span id="cb13-615"><a href="#cb13-615" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_inv_cubed =</span> <span class="dv">1</span><span class="sc">/</span>(x<span class="sc">^</span><span class="dv">3</span>)</span>
-<span id="cb13-616"><a href="#cb13-616" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb13-617"><a href="#cb13-617" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb13-618"><a href="#cb13-618" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"x_"</span>),</span>
-<span id="cb13-619"><a href="#cb13-619" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"transformation"</span>,</span>
-<span id="cb13-620"><a href="#cb13-620" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"value"</span></span>
-<span id="cb13-621"><a href="#cb13-621" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb13-622"><a href="#cb13-622" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-623"><a href="#cb13-623" aria-hidden="true" tabindex="-1"></a>    <span class="at">transformation =</span> <span class="fu">factor</span>(</span>
-<span id="cb13-624"><a href="#cb13-624" aria-hidden="true" tabindex="-1"></a>      transformation,</span>
-<span id="cb13-625"><a href="#cb13-625" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"x_cubed"</span>, <span class="st">"x_squared"</span>, <span class="st">"x_original"</span>, <span class="st">"x_log"</span>, <span class="st">"x_sqrt"</span>, <span class="st">"x_inv"</span>, <span class="st">"x_inv_squared"</span>, <span class="st">"x_inv_cubed"</span>),</span>
-<span id="cb13-626"><a href="#cb13-626" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(</span>
-<span id="cb13-627"><a href="#cb13-627" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x³"</span>,</span>
-<span id="cb13-628"><a href="#cb13-628" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x²"</span>,</span>
-<span id="cb13-629"><a href="#cb13-629" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x (original)"</span>,</span>
-<span id="cb13-630"><a href="#cb13-630" aria-hidden="true" tabindex="-1"></a>        <span class="st">"log"</span>,</span>
-<span id="cb13-631"><a href="#cb13-631" aria-hidden="true" tabindex="-1"></a>        <span class="st">"√x"</span>,</span>
-<span id="cb13-632"><a href="#cb13-632" aria-hidden="true" tabindex="-1"></a>        <span class="st">"1/x"</span>,</span>
-<span id="cb13-633"><a href="#cb13-633" aria-hidden="true" tabindex="-1"></a>        <span class="st">"1/x²"</span>,</span>
-<span id="cb13-634"><a href="#cb13-634" aria-hidden="true" tabindex="-1"></a>        <span class="st">"1/x³"</span></span>
-<span id="cb13-635"><a href="#cb13-635" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb13-636"><a href="#cb13-636" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb13-637"><a href="#cb13-637" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-638"><a href="#cb13-638" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-639"><a href="#cb13-639" aria-hidden="true" tabindex="-1"></a><span class="co"># Create trellis of Q-Q plots</span></span>
-<span id="cb13-640"><a href="#cb13-640" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(transformation_data, <span class="fu">aes</span>(<span class="at">sample =</span> value)) <span class="sc">+</span></span>
-<span id="cb13-641"><a href="#cb13-641" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb13-642"><a href="#cb13-642" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb13-643"><a href="#cb13-643" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> transformation, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb13-644"><a href="#cb13-644" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-645"><a href="#cb13-645" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Ladder of Powers: Comparing Transformations for Earnings Data"</span>,</span>
-<span id="cb13-646"><a href="#cb13-646" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Which transformation makes the data most closely follow the line?"</span>,</span>
-<span id="cb13-647"><a href="#cb13-647" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Theoretical Quantiles"</span>,</span>
-<span id="cb13-648"><a href="#cb13-648" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sample Quantiles"</span></span>
-<span id="cb13-649"><a href="#cb13-649" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-650"><a href="#cb13-650" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
-<span id="cb13-651"><a href="#cb13-651" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb13-652"><a href="#cb13-652" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb13-653"><a href="#cb13-653" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray90"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb13-654"><a href="#cb13-654" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"gray80"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>),</span>
-<span id="cb13-655"><a href="#cb13-655" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb13-656"><a href="#cb13-656" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>)</span>
-<span id="cb13-657"><a href="#cb13-657" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-658"><a href="#cb13-658" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-659"><a href="#cb13-659" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-660"><a href="#cb13-660" aria-hidden="true" tabindex="-1"></a>**How to read this**:</span>
-<span id="cb13-661"><a href="#cb13-661" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-662"><a href="#cb13-662" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each panel shows the same data with a different transformation</span>
-<span id="cb13-663"><a href="#cb13-663" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Look for which Q-Q plot has points **closest to the red line**</span>
-<span id="cb13-664"><a href="#cb13-664" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-665"><a href="#cb13-665" aria-hidden="true" tabindex="-1"></a>**Strategy**: Create this trellis for your data, compare visually. The goal isn't necessarily to find a fix, but to understand the structure of the data. One tip: when the log is the best or close to the others -- pick it. You can then use multiplicative interpretation.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb13-582"><a href="#cb13-582" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$log(x)$ (log x; see below)</span>
+<span id="cb13-583"><a href="#cb13-583" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^{1/2}$ (square root)</span>
+<span id="cb13-584"><a href="#cb13-584" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^{-1}$ (reciprocal)</span>
+<span id="cb13-585"><a href="#cb13-585" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^{-2}$ (reciprocal square)</span>
+<span id="cb13-586"><a href="#cb13-586" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x^{-3}$ (reciprocal cube)</span>
+<span id="cb13-587"><a href="#cb13-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-588"><a href="#cb13-588" aria-hidden="true" tabindex="-1"></a>I add $\log(x)$ in there too. You can think of it as the limit of $x^p$ as $p$ approaches 0, since for small $p$, $x^p$ behaves similarly to $\log(x)$. Cleveland (1993, p. 56) explains that the derivative of $\log(x)$ is $\frac{1}{x}$, and the derivative of $x^{0.001}$ is proportional to $x^{-0.999}$. The intuition is:</span>
+<span id="cb13-589"><a href="#cb13-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-590"><a href="#cb13-590" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For large $p$, you get steep curves ($x^2$, $x^3$).</span>
+<span id="cb13-591"><a href="#cb13-591" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For small $p$, they flatten out and start to look like $\log(x)$.</span>
+<span id="cb13-592"><a href="#cb13-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-593"><a href="#cb13-593" aria-hidden="true" tabindex="-1"></a><span class="in">```{r transformation_comparison}</span></span>
+<span id="cb13-594"><a href="#cb13-594" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.height: 9</span></span>
+<span id="cb13-595"><a href="#cb13-595" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.width: 12</span></span>
+<span id="cb13-596"><a href="#cb13-596" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-597"><a href="#cb13-597" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb13-598"><a href="#cb13-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-599"><a href="#cb13-599" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the earnings data from Example 1</span></span>
+<span id="cb13-600"><a href="#cb13-600" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb13-601"><a href="#cb13-601" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb13-602"><a href="#cb13-602" aria-hidden="true" tabindex="-1"></a>earnings <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fu">log</span>(<span class="dv">50000</span>), <span class="at">sd =</span> <span class="fl">0.6</span>))</span>
+<span id="cb13-603"><a href="#cb13-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-604"><a href="#cb13-604" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply different power transformations</span></span>
+<span id="cb13-605"><a href="#cb13-605" aria-hidden="true" tabindex="-1"></a>transformation_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-606"><a href="#cb13-606" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> earnings</span>
+<span id="cb13-607"><a href="#cb13-607" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb13-608"><a href="#cb13-608" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-609"><a href="#cb13-609" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_cubed =</span> x<span class="sc">^</span><span class="dv">3</span>,</span>
+<span id="cb13-610"><a href="#cb13-610" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_squared =</span> x<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb13-611"><a href="#cb13-611" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_original =</span> x,</span>
+<span id="cb13-612"><a href="#cb13-612" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_log =</span> <span class="fu">log</span>(x),</span>
+<span id="cb13-613"><a href="#cb13-613" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_sqrt =</span> <span class="fu">sqrt</span>(x),</span>
+<span id="cb13-614"><a href="#cb13-614" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_inv =</span> <span class="dv">1</span><span class="sc">/</span>x,</span>
+<span id="cb13-615"><a href="#cb13-615" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_inv_squared =</span> <span class="dv">1</span><span class="sc">/</span>(x<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb13-616"><a href="#cb13-616" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_inv_cubed =</span> <span class="dv">1</span><span class="sc">/</span>(x<span class="sc">^</span><span class="dv">3</span>)</span>
+<span id="cb13-617"><a href="#cb13-617" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-618"><a href="#cb13-618" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb13-619"><a href="#cb13-619" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"x_"</span>),</span>
+<span id="cb13-620"><a href="#cb13-620" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"transformation"</span>,</span>
+<span id="cb13-621"><a href="#cb13-621" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"value"</span></span>
+<span id="cb13-622"><a href="#cb13-622" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-623"><a href="#cb13-623" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-624"><a href="#cb13-624" aria-hidden="true" tabindex="-1"></a>    <span class="at">transformation =</span> <span class="fu">factor</span>(</span>
+<span id="cb13-625"><a href="#cb13-625" aria-hidden="true" tabindex="-1"></a>      transformation,</span>
+<span id="cb13-626"><a href="#cb13-626" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"x_cubed"</span>, <span class="st">"x_squared"</span>, <span class="st">"x_original"</span>, <span class="st">"x_log"</span>, <span class="st">"x_sqrt"</span>, <span class="st">"x_inv"</span>, <span class="st">"x_inv_squared"</span>, <span class="st">"x_inv_cubed"</span>),</span>
+<span id="cb13-627"><a href="#cb13-627" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb13-628"><a href="#cb13-628" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x³"</span>,</span>
+<span id="cb13-629"><a href="#cb13-629" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x²"</span>,</span>
+<span id="cb13-630"><a href="#cb13-630" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x (original)"</span>,</span>
+<span id="cb13-631"><a href="#cb13-631" aria-hidden="true" tabindex="-1"></a>        <span class="st">"log"</span>,</span>
+<span id="cb13-632"><a href="#cb13-632" aria-hidden="true" tabindex="-1"></a>        <span class="st">"√x"</span>,</span>
+<span id="cb13-633"><a href="#cb13-633" aria-hidden="true" tabindex="-1"></a>        <span class="st">"1/x"</span>,</span>
+<span id="cb13-634"><a href="#cb13-634" aria-hidden="true" tabindex="-1"></a>        <span class="st">"1/x²"</span>,</span>
+<span id="cb13-635"><a href="#cb13-635" aria-hidden="true" tabindex="-1"></a>        <span class="st">"1/x³"</span></span>
+<span id="cb13-636"><a href="#cb13-636" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb13-637"><a href="#cb13-637" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-638"><a href="#cb13-638" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-639"><a href="#cb13-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-640"><a href="#cb13-640" aria-hidden="true" tabindex="-1"></a><span class="co"># Create trellis of Q-Q plots</span></span>
+<span id="cb13-641"><a href="#cb13-641" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(transformation_data, <span class="fu">aes</span>(<span class="at">sample =</span> value)) <span class="sc">+</span></span>
+<span id="cb13-642"><a href="#cb13-642" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb13-643"><a href="#cb13-643" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb13-644"><a href="#cb13-644" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> transformation, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb13-645"><a href="#cb13-645" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-646"><a href="#cb13-646" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Ladder of Powers: Comparing Transformations for Earnings Data"</span>,</span>
+<span id="cb13-647"><a href="#cb13-647" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Which transformation makes the data most closely follow the line?"</span>,</span>
+<span id="cb13-648"><a href="#cb13-648" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Theoretical Quantiles"</span>,</span>
+<span id="cb13-649"><a href="#cb13-649" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Sample Quantiles"</span></span>
+<span id="cb13-650"><a href="#cb13-650" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-651"><a href="#cb13-651" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb13-652"><a href="#cb13-652" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb13-653"><a href="#cb13-653" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb13-654"><a href="#cb13-654" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray90"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb13-655"><a href="#cb13-655" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"gray80"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>),</span>
+<span id="cb13-656"><a href="#cb13-656" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb13-657"><a href="#cb13-657" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>)</span>
+<span id="cb13-658"><a href="#cb13-658" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-659"><a href="#cb13-659" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-660"><a href="#cb13-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-661"><a href="#cb13-661" aria-hidden="true" tabindex="-1"></a>**How to read this**:</span>
+<span id="cb13-662"><a href="#cb13-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-663"><a href="#cb13-663" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each panel shows the same data with a different transformation</span>
+<span id="cb13-664"><a href="#cb13-664" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Look for which Q-Q plot has points **closest to the red line**</span>
+<span id="cb13-665"><a href="#cb13-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-666"><a href="#cb13-666" aria-hidden="true" tabindex="-1"></a>**Strategy**: Create this trellis for your data, compare visually. The goal isn't necessarily to find a fix, but to understand the structure of the data. One tip: when the log is the best or close to the others -- pick it. You can then use multiplicative interpretation.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

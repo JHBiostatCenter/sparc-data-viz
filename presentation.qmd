@@ -115,6 +115,18 @@ source(here::here("examples", "colors.R"))
 ![Charles Minard's Napoleon's March](images/minard_napoleon.png)
 
 
+## Recreating Minard with Matplotlib
+
+Someone has done a pretty impressive job recreating this visualization using Python's matplotlib library:
+
+![Minard's Chart Recreation](images/napoleons-march-data.webp)
+
+[View the full tutorial](https://amitamola.medium.com/minards-chart-using-matplotlib-in-python-fbe8865cad78)
+
+## Recreating Minard with Matplotlib (cont.)
+
+![Minard's Chart Recreated](images/napoleons-march-recreated.webp)
+
 ## Achieving Minard's Graphical Excellence
 
 > "[Minard's classic image] can be described and admired, but there are no compositional principles on how to create that one wonder graphic in a million.""

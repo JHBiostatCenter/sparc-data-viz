@@ -579,6 +579,7 @@ For example:
 - $x^3$ (cube)
 - $x^2$ (square)
 - $x^1$ (original, no transformation)
+- $log(x)$ (log x; see below)
 - $x^{1/2}$ (square root)
 - $x^{-1}$ (reciprocal)
 - $x^{-2}$ (reciprocal square)
